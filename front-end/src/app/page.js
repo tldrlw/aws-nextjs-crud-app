@@ -1,5 +1,3 @@
-// import Image from "next/image";
-
 export default function Home() {
   const buildTime =
     process.env.NEXT_PUBLIC_BUILD_TIME || "build time placeholder";
