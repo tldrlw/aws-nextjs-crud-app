@@ -34,19 +34,19 @@ module "lambda_post" {
   function_url_public    = true
 }
 
-# module "lambda_delete" {
-#   source              = "git::https://github.com/tldrlw/terraform-modules.git//apig-lambda?ref=function-url"
-#   source_dir          = var.LAMBDA_PATH
-#   handler_file_prefix = "app-delete"
-#   REST_method         = "POST"
-#   function_name       = "${var.APP_NAME}-delete"
-#   environment_variables = {
-#     DYDB_TABLE_NAME = aws_dynamodb_table.messages.id,
-#     REGION          = var.REGION
-#   }
-#   is_s3                  = false
-#   is_dydb                = true
-#   dydb_table_arn         = aws_dynamodb_table.messages.arn
-#   dydb_table_permissions = ["dynamodb:BatchWriteItem"]
-# function_url_public = true
-# }
+module "lambda_delete" {
+  source              = "git::https://github.com/tldrlw/terraform-modules.git//apig-lambda?ref=function-url"
+  source_dir          = var.LAMBDA_PATH
+  handler_file_prefix = "app-delete"
+  REST_method         = "DELETE"
+  function_name       = "${var.APP_NAME}-delete"
+  environment_variables = {
+    DYDB_TABLE_NAME = aws_dynamodb_table.messages.id,
+    REGION          = var.REGION
+  }
+  is_s3                  = false
+  is_dydb                = true
+  dydb_table_arn         = aws_dynamodb_table.messages.arn
+  dydb_table_permissions = ["dynamodb:DeleteItem"]
+  function_url_public    = true
+}

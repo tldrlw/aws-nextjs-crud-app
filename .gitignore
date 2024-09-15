@@ -55,6 +55,9 @@ front-end/.env.production.local
 infrastructure/.terraform/
 infrastructure/.terraform.lock.hcl
 
+# Ignore .zip files in the infrastructure directory
+infrastructure/*.zip
+
 # Ignore Terraform state files, these often contain sensitive data.
 *.tfstate
 *.tfstate.backup

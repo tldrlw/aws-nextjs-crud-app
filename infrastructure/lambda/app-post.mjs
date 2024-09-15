@@ -61,6 +61,8 @@ export const lambdaHandler = async (event, context) => {
     return date.toISOString();
   }
 
+  // DynamoDB client configuration
+  const client = new DynamoDBClient({ region });
   // DynamoDB params for BatchWriteItemCommand
   const params = {
     RequestItems: {
@@ -83,9 +85,6 @@ export const lambdaHandler = async (event, context) => {
       ],
     },
   };
-
-  // DynamoDB client configuration
-  const client = new DynamoDBClient({ region });
 
   try {
     const command = new BatchWriteItemCommand(params);

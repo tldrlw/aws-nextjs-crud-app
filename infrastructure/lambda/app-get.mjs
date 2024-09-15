@@ -30,6 +30,7 @@ export const lambdaHandler = async (event, context) => {
 
   // DynamoDB client configuration
   const client = new DynamoDBClient({ region });
+  // Define parameters for ScanCommand
   const params = {
     TableName: tableName, // Your DynamoDB table name from environment variable
     Limit: limit, // Optionally, you can use the limit environment variable to limit the number of items returned

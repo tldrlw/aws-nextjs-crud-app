@@ -13,3 +13,11 @@ output "lambda_post_function_url" {
 output "lambda_post_arn" {
   value = module.lambda_post.arn
 }
+
+output "lambda_delete_function_url" {
+  value = module.lambda_delete.function_url
+}
+
+output "lambda_delete_arn" {
+  value = module.lambda_delete.arn
+}
