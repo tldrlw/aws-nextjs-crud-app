@@ -4,6 +4,7 @@ export const lambdaHandler = async (event, context) => {
   // console.log("event", event);
   // console.log("context", context);
   // ^ structure is different to if the Lambda was hooked up to APIG with Cognito Auth
+  // Extracting requestContext and context info
   const { domainName, http, time } = event.requestContext;
   const { functionName, memoryLimitInMB, logGroupName, invokedFunctionArn } =
     context;
@@ -21,13 +22,13 @@ export const lambdaHandler = async (event, context) => {
     invokedFunctionArn,
   });
 
-  // env vars passed in through lambda.tf
+  // Environment variables from Lambda configuration
   const limitAsEnvVar = process.env.LIMIT;
   const limit = limitAsEnvVar ?? 10;
   const tableName = process.env.DYDB_TABLE_NAME;
   const region = process.env.REGION;
 
-  // SDK config
+  // DynamoDB client configuration
   const client = new DynamoDBClient({ region });
   const params = {
     TableName: tableName, // Your DynamoDB table name from environment variable
