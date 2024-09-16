@@ -1,5 +1,5 @@
 module "lambda_get" {
-  source              = "git::https://github.com/tldrlw/terraform-modules.git//apig-lambda?ref=function-url"
+  source              = "git::https://github.com/tldrlw/terraform-modules.git//apig-lambda"
   source_dir          = var.LAMBDA_PATH
   handler_file_prefix = "app-get"
   REST_method         = "GET"
@@ -18,7 +18,7 @@ module "lambda_get" {
 # run ^ after pushing up changes to modules
 
 module "lambda_post" {
-  source              = "git::https://github.com/tldrlw/terraform-modules.git//apig-lambda?ref=function-url"
+  source              = "git::https://github.com/tldrlw/terraform-modules.git//apig-lambda"
   source_dir          = var.LAMBDA_PATH
   handler_file_prefix = "app-post"
   REST_method         = "POST"
@@ -35,7 +35,7 @@ module "lambda_post" {
 }
 
 module "lambda_delete" {
-  source              = "git::https://github.com/tldrlw/terraform-modules.git//apig-lambda?ref=function-url"
+  source              = "git::https://github.com/tldrlw/terraform-modules.git//apig-lambda"
   source_dir          = var.LAMBDA_PATH
   handler_file_prefix = "app-delete"
   REST_method         = "DELETE"
