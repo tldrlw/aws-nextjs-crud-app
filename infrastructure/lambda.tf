@@ -50,3 +50,20 @@ module "lambda_delete" {
   dydb_table_permissions = ["dynamodb:DeleteItem"]
   function_url_public    = true
 }
+
+module "lambda_put" {
+  source              = "git::https://github.com/tldrlw/terraform-modules.git//apig-lambda"
+  source_dir          = var.LAMBDA_PATH
+  handler_file_prefix = "app-put"
+  REST_method         = "PUT"
+  function_name       = "${var.APP_NAME}-put"
+  environment_variables = {
+    DYDB_TABLE_NAME = aws_dynamodb_table.messages.id,
+    REGION          = var.REGION
+  }
+  is_s3                  = false
+  is_dydb                = true
+  dydb_table_arn         = aws_dynamodb_table.messages.arn
+  dydb_table_permissions = ["dynamodb:UpdateItem"]
+  function_url_public    = true
+}
