@@ -6,6 +6,9 @@
 
 ## infrastructure
 
-- POST lambda (with function URL) that writes to dydb table
-- GET lambda (with function URL) that reads (scan operation) dydb table
-- DELETE lambda (with function URL) that deletes (query operation) items from dydb table
+### Lambda source code (path: infrastructure/lambda)
+
+- GET - reads (`ScanCommand`) items from DynamoDB
+- POST - writes (`BatchWriteItemCommand`) a new item to DynamoDB
+- PUT - updates (`UpdateItemCommand`) an existing item in DynamoDB
+- DELETE - deletes (`DeleteItemCommand`) an existing item in DynamoDB
