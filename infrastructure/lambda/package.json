@@ -1,0 +1,13 @@
+{
+  "name": "aws-next-js-crud-app-lambda",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Refayat Haque",
+  "license": "ISC",
+  "description": "https://github.com/tldrlw/aws-nextjs-crud-app/tree/dev",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.637.0"
+  }
+}
