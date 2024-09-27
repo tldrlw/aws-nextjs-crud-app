@@ -1,6 +1,6 @@
 import { revalidateTag } from "next/cache";
 
-export async function postMessage(formData) {
+export default async function postMessage(formData) {
   "use server";
 
   console.log("front-end/src/services/postMessage.js - formData", formData);

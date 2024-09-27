@@ -1,8 +1,9 @@
-import { getMessages } from "@/services/getMessages";
+import getMessages from "@/services/getMessages";
+import deleteMessage from "@/services/deleteMessage";
 
-export async function ListMessages() {
+export default async function ListMessages() {
   const { data: messages } = await getMessages();
-  // ^ getMessages() returns the following, so destructuring out `data` and renaming the array to `messages`
+  // ^ getMessages() returns the following, so destructuring out "data" and renaming the array to "messages"
   // {
   //   "message": "Scan successful",
   //   "data": [
@@ -52,13 +53,31 @@ export async function ListMessages() {
       {sortedMessages.map((message, index) => (
         <div
           key={index}
-          className="my-2 rounded-md border-2 border-solid border-green-500 p-2"
+          className="my-2 flex flex-row rounded-md border-2 border-solid border-green-500 p-2"
         >
-          <p className="font-bold">{message.Message.S}</p>
-          <p>
-            ID: <span className="italic">{message.PK.S}</span>
-          </p>
-          <p>{formatToHumanReadable(message.DateTime.S)}</p>
+          <div className="basis-5/6">
+            <p className="font-bold">{message.Message.S}</p>
+            <p>
+              ID: <span className="italic">{message.PK.S}</span>
+            </p>
+            <p>{formatToHumanReadable(message.DateTime.S)}</p>
+          </div>
+          <div className="flex basis-1/6 justify-end pr-2">
+            <form
+              action={deleteMessage}
+              // https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations#forms
+            >
+              <input type="hidden" name="messageId" value={message.PK.S} />
+              {/* To pass the messageId to your server action (deleteMessage) using a form, you can add a hidden input field inside the form.
+              This hidden input will store the messageId value, which can then be accessed via formData.get('messageId') on the server side when the form is submitted. */}
+              <button
+                type="submit"
+                className="my-2 rounded-md bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+              >
+                Delete
+              </button>
+            </form>
+          </div>
         </div>
       ))}
     </div>

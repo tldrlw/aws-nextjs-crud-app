@@ -1,5 +1,6 @@
-import { ListMessages } from "@/components/ListMessages";
-import { NewMessage } from "@/components/NewMessage";
+import ListMessages from "@/components/ListMessages";
+import NewMessage from "@/components/NewMessage";
+import UpdateMessage from "@/components/UpdateMessage";
 import { Suspense } from "react";
 
 export default function App() {
@@ -23,8 +24,9 @@ export default function App() {
               <ListMessages></ListMessages>
             </Suspense>
           </div>
-          <div className="bg-gray-200 p-6 text-center">
+          <div className="space-y-4 bg-gray-200 p-6 text-center">
             <NewMessage></NewMessage>
+            <UpdateMessage></UpdateMessage>
           </div>
         </div>
       </div>
@@ -34,7 +36,3 @@ export default function App() {
 
 // Suspense - https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming#streaming-with-suspense
 // ^ works by wrapping a component that performs an asynchronous action (e.g. fetch data), showing fallback UI (e.g. skeleton, spinner) while it's happening, and then swapping in your component once the action completes.
-
-// lambda_delete_function_url = "https://b5yxhpejsv77jyymlpodmdouhi0ikayu.lambda-url.us-east-1.on.aws/"
-// lambda_get_function_url = "https://epixe36kvjo3pvtncrhafcak7y0tqsfx.lambda-url.us-east-1.on.aws/"
-// lambda_put_function_url = "https://fm4cuk7nbag4qdvmuxkzdeytge0vvrte.lambda-url.us-east-1.on.aws/"
