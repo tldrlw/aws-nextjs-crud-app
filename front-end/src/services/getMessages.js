@@ -1,4 +1,4 @@
-export async function getMessages() {
+export default async function getMessages() {
   "use server";
 
   console.log("front-end/src/services/getMessage.js");
@@ -32,10 +32,10 @@ export async function getMessages() {
       throw new Error("Network response was not ok");
     }
     data = await response.json();
-    console.log(
-      "front-end/src/services/getMessage.js - API call successful",
-      JSON.stringify(data, null, 2),
-    );
+    // console.log(
+    //   "front-end/src/services/getMessage.js - API call successful",
+    //   JSON.stringify(data, null, 2),
+    // );
   } catch (error) {
     console.error(
       "front-end/src/services/getMessage.js - API call failed",
