@@ -26,7 +26,7 @@ export async function getMessages() {
       // ^ for NO caching
       // https://nextjs.org/docs/app/api-reference/functions/fetch#fetchurl-options
       // you can see differences between cached and non-cached API calls by configuring special logging in `next.config.mjs`, comment out ^ and it'll log 'cache-hit'
-      requestOptions
+      requestOptions,
     );
     if (!response.ok) {
       throw new Error("Network response was not ok");
@@ -34,12 +34,12 @@ export async function getMessages() {
     data = await response.json();
     console.log(
       "front-end/src/services/getMessage.js - API call successful",
-      JSON.stringify(data, null, 2)
+      JSON.stringify(data, null, 2),
     );
   } catch (error) {
     console.error(
       "front-end/src/services/getMessage.js - API call failed",
-      error
+      error,
     );
   }
 

@@ -22,7 +22,7 @@ export async function ListMessages() {
 
   console.log(
     "front-end/src/components/ListMessages.js - # of messages - ",
-    messages.length
+    messages.length,
   );
 
   // Sort by DateTime in descending order (most recent first)
@@ -52,7 +52,7 @@ export async function ListMessages() {
       {sortedMessages.map((message, index) => (
         <div
           key={index}
-          className="border-solid border-2 border-green-500 p-2 my-2 rounded-md"
+          className="my-2 rounded-md border-2 border-solid border-green-500 p-2"
         >
           <p className="font-bold">{message.Message.S}</p>
           <p>

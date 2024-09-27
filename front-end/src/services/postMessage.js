@@ -30,14 +30,16 @@ export async function postMessage(formData) {
     data = await response.json();
     console.log(
       "front-end/src/services/postMessage.js - API call successful",
-      data
+      data,
     );
     revalidateTag("messages");
     // https://nextjs.org/docs/app/api-reference/functions/revalidateTag
+    // https://www.youtube.com/watch?v=VBlSe8tvg4U
+    // ^ using tags to revalidate the cache (i.e., getting the ListMessages component to make a new API call to get messages) is explained around 11:00
   } catch (error) {
     console.error(
       "front-end/src/services/postMessage.js - API call failed",
-      error
+      error,
     );
   }
 

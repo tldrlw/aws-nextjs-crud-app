@@ -5,21 +5,18 @@ export function NewMessage() {
     <form
       action={postMessage}
       // https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations#forms
-      className="max-w-lg mx-auto p-4 bg-green-100 shadow-md rounded-lg"
+      className="mx-auto mt-2 max-w-lg rounded-lg bg-green-100 p-4 shadow-md"
     >
       <div className="mb-4">
-        <label
-          htmlFor="message"
-          className="block text-sm font-medium text-gray-700"
-        >
+        <label htmlFor="message" className="block font-bold text-gray-700">
           Message
         </label>
-        <div className="mt-1">
+        <div className="mt-4">
           <input
             type="text"
             name="message"
             id="message"
-            className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
+            className="block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-green-500 focus:outline-none focus:ring-green-500"
             placeholder="Type your message..."
           />
         </div>
@@ -27,7 +24,7 @@ export function NewMessage() {
       <div className="flex justify-end">
         <button
           type="submit"
-          className="px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-md hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+          className="my-2 rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
         >
           Add to AWS DynamoDB table
         </button>

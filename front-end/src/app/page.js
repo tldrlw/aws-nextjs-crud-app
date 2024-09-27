@@ -16,14 +16,14 @@ export default function App() {
       <p>
         ECR image path: <span className="italic">{image}</span>
       </p>
-      <div className="flex justify-center items-center my-6">
+      <div className="my-6 flex items-center justify-center">
         <div className="container mx-auto grid grid-cols-2 gap-8">
-          <div className="p-6 bg-gray-200 text-center">
+          <div className="bg-gray-200 p-6 text-center">
             <Suspense fallback={<p>Loading messages...</p>}>
               <ListMessages></ListMessages>
             </Suspense>
           </div>
-          <div className="p-6 bg-gray-200 text-center">
+          <div className="bg-gray-200 p-6 text-center">
             <NewMessage></NewMessage>
           </div>
         </div>

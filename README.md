@@ -3,6 +3,7 @@
 ## front-end
 
 - basic form that makes API (most likely client-side because state-management for "processing request" logic) call to store a message
+- https://github.com/tailwindlabs/prettier-plugin-tailwindcss?tab=readme-ov-file - just a nice to have during the development process...
 
 ## infrastructure
 
