@@ -23,8 +23,12 @@ export const lambdaHandler = async (event, context) => {
   });
 
   // Environment variables from Lambda configuration
-  const limitAsEnvVar = process.env.LIMIT;
-  const limit = limitAsEnvVar ?? 10;
+  const limitAsEnvVar = process.env.LIMIT; // assuming it's coming from an environment variable
+  const limit = parseInt(limitAsEnvVar, 10) ?? 10; // Convert to integer, fallback to 10 if null or undefined
+  console.log("limitAsEnvVar", limitAsEnvVar);
+  console.log("limitAsEnvVar typeof", typeof limitAsEnvVar);
+  console.log("limit", limit);
+  console.log("limit typeof", typeof limit);
   const tableName = process.env.DYDB_TABLE_NAME;
   const region = process.env.REGION;
 

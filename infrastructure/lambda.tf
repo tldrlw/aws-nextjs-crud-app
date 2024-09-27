@@ -7,6 +7,7 @@ module "lambda_get" {
   environment_variables = {
     DYDB_TABLE_NAME = aws_dynamodb_table.messages.id,
     REGION          = var.REGION
+    LIMIT           = 20
   }
   is_s3                  = false
   is_dydb                = true
