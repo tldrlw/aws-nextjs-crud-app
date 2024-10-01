@@ -1,7 +1,7 @@
 export default async function getMessages() {
   "use server";
 
-  console.log("front-end/src/services/getMessage.js");
+  console.log("front-end/src/services/getMessages.js");
 
   const requestOptions = {
     method: "GET",
