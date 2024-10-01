@@ -33,12 +33,12 @@ export default async function getMessages() {
     }
     data = await response.json();
     // console.log(
-    //   "front-end/src/services/getMessage.js - API call successful",
+    //   "front-end/src/services/getMessages.js - API call successful",
     //   JSON.stringify(data, null, 2),
     // );
   } catch (error) {
     console.error(
-      "front-end/src/services/getMessage.js - API call failed",
+      "front-end/src/services/getMessages.js - API call failed",
       error,
     );
   }
